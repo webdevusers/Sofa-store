@@ -7,4 +7,5 @@ router.get('/all', controller.getAll)
 router.delete('/removeCategory', controller.delete)
 router.post('/createItem', controller.addItem)
 router.delete('/removeItem', controller.deleteItem)
+router.get('/random', controller.getRandomItems)
 module.exports = router;
