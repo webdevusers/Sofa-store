@@ -66,6 +66,15 @@ class ItemsController {
       res.status(500).json({ error: "Internal Server Error" });
     }
   }
+  async getRandomItems(req, res) {
+  try {
+    const randomItems = await Item.aggregate([{ $sample: { size: 2 } }]);
+
+    res.status(200).json({ status: "Ok", randomItems });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
 }
 
 module.exports = new ItemsController();
